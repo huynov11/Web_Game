@@ -13,7 +13,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Varela+Round&display=swap" rel="stylesheet">
 </head>
 
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        
+        const size = Math.random() * 5 + 2 + 'px';
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        
+        snowflake.style.animationDuration = Math.random() * 5 + 3 + 's';
+        
+        snowflake.style.opacity = Math.random();
+        
+        document.body.appendChild(snowflake);
+        
+        setTimeout(() => {
+            snowflake.remove();
+        }, 8000);
+    }
 
+    setInterval(createSnowflake, 50);
+</script>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
@@ -32,19 +55,18 @@
                 <ul class="navbar-nav ms-auto py-0 "> 
                     <li class="nav-item"><a href="#Home" class="nav-link"><i class="fa-solid fa-house" style="color: #74C0FC;"></i><span class="nav-text">Home</span></a></li>
                     <li class="nav-item"><a href="#Member" class="nav-link"><i class="fa-solid fa-people-group" style="color: #74C0FC;"></i><span class="nav-text">Members</span></a></li>
-                    <li class="nav-item"><a href="#Game" class="nav-link"><i class="fa-solid fa-gamepad" style="color: #74C0FC;"></i><span class="nav-text">Games</span> </a></li>
+                    <li class="nav-item"><a href="game.html" class="nav-link"><i class="fa-solid fa-gamepad" style="color: #74C0FC;"></i><span class="nav-text">Games</span> </a></li>
                 </ul>
             </div>
         </div> 
     </nav>
 
     <section id="Home" class="home-section">
-        <video autoplay loop muted class="back-video" src="video/gameIntro.mp4"></video>
-
+        <video autoplay loop   class="back-video" src="video/gameIntro.mp4"></video>
         <div class="container home-content"> 
             <h1 class="display-3 fw-bold mb-3">Dự án <br> <span style="color:var(--accent-color)">NMCNTT - TH</span></h1>
             <p class="lead mb-4">Giới thiệu về dự án làm Games và Websites của nhóm</p>
-            <a href="#Game" class="btn btn-custom me-2">View Game</a>
+            <a href="game.html" class="btn btn-custom me-2">View Game</a>
             <a href="#Member" class="btn btn-custom">Meet Devs</a>
         </div>
     </section>
@@ -67,24 +89,35 @@
                             <p class="text-secondary">Nhóm C&M làm việc với nhau qua các phần mềm chính sau đây: </p>
                     </li>
                     </ul>
-                    <div class="row">
+                    <div class="row mt-0">
                         <div class="col-md-6">
-                            <h6 style="display: inline;">Game Devs tools
+
+                            <button class="btn btn-custom-tools position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#game-tools" aria-expanded="false" aria-controls="#game-tools" >
+                                <h6>Game Devs tools</h6>
+                            </button>
+                            
+                            <div class="collapse ms-3 position-absolute justify-content-center" id="game-tools">
                                 <ul class="list-unstyled">
-                                    <li><i class="fa-brands fa-unity" style="color: #74C0FC;"></i> Unity</li>
-                                    <li><i class="fa-brands fa-github" style="color: #74C0FC;"></i> Github</li>
-                                    <li><i class="fa-solid fa-code" style="color: #74C0FC;"></i> C#</li>
+                                <li><i class="fa-brands fa-unity" style="color: #74C0FC;"></i> Unity</li>
+                                <li><i class="fa-brands fa-github" style="color: #74C0FC;"></i> Github</li>
+                                <li><i class="fa-solid fa-code" style="color: #74C0FC;"></i> C#</li>
                                 </ul>
-                            </h6>
+                            </div>
+
+
                         </div>
                         <div class="col-md-6">
-                            <h6 style="display: inline;">Web Devs tools
+                            <button class="btn btn-custom-tools position-relative" type="button" data-bs-toggle="collapse" data-bs-target="#web-tools" aria-expanded="false" aria-controls="#web-tools" >
+                                <h6 >Web Devs tools</h6>
+                            </button>
+                            <div class="collapse ms-3 position-absolute justify-content-center" id="web-tools">
                                 <ul class="list-unstyled">
-                                    <li><i class="fa-brands fa-bootstrap" style="color: #74C0FC;"></i> Unity</li>
-                                    <li><i class="fa-brands fa-github" style="color: #74C0FC;"></i> Github</li>
-                                    <li><i class="fa-solid fa-code" style="color: #74C0FC;"></i> C#</li>
+                                <li><i class="fa-brands fa-bootstrap" style="color: #74C0FC;"></i> Bootstrap</li>
+                                <li><i class="fa-brands fa-github" style="color: #74C0FC;"></i> Github</li>
+                                <li><i class="fa-solid fa-code" style="color: #74C0FC;"></i> HTML, CSS</li>
                                 </ul>
-                            </h6>
+                            </div>
+
                         </div>
 
                     </div>
@@ -250,7 +283,7 @@
                 </div>
             </div>
             
-            <p> &copy; 2025 Studio Name. All rights reserved.</p>
+            <p> &copy; 2025 C&M. All rights reserved.</p>
             <p>Powerd by <span style="color: var(--accent-color);"> Bootstrap </span> </p>
         </div>
       
